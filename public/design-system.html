@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spaz Altor — Design System & Pitch Deck Reference</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Bebas Neue", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                red: "#E50914",
+                green: "#5CB811",
+                black: "#0A0A0A",
+              },
+              studio: {
+                bg: "#FFFFFF",
+                muted: "#F7F7F8",
+                border: "#E5E5E7",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #0a0a0a;
+      }
+      h1, h2, h3, .font-display {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-brand-red selection:text-white">
+    <!-- Top Header -->
+    <header class="border-b border-studio-border sticky top-0 bg-white/95 backdrop-blur-md z-50">
+      <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
+          <span class="text-xs font-bold tracking-[0.2em] uppercase">
+            SPAZ ALTOR · DESIGN SYSTEM v1.0
+          </span>
+        </div>
+        <div class="flex items-center gap-6 text-xs font-semibold tracking-widest uppercase">
+          <a href="#colores" class="hover:text-brand-red">01. Colores</a>
+          <a href="#tipografia" class="hover:text-brand-red">02. Tipografía</a>
+          <a href="#componentes" class="hover:text-brand-red">03. Componentes</a>
+          <a href="#argumentos" class="hover:text-brand-red">04. Argumentos de Venta</a>
+          <a href="/" class="bg-brand-black text-white px-4 py-2 hover:bg-neutral-800">
+            ← Volver a la Tienda
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 space-y-24">
+      <!-- Intro -->
+      <section class="border-b border-studio-border pb-16">
+        <p class="text-xs font-bold tracking-[0.2em] uppercase text-brand-red mb-2">
+          DOCUMENTACIÓN VISUAL Y COMERCIAL · MEDELLÍN 2026
+        </p>
+        <h1 class="text-6xl sm:text-8xl leading-[0.92] uppercase">
+          EDITORIAL ATHLETIC<br />
+          <span class="text-brand-red">DESIGN SYSTEM.</span>
+        </h1>
+        <p class="mt-6 text-neutral-600 max-w-2xl text-base leading-relaxed">
+          Sistema de diseño modular creado para la nueva tienda en línea de <strong>Spaz Altor</strong>. Inspirado en el lenguaje editorial de marcas globales de alto rendimiento (<em>On Running, Tracksmith, Zara Athleticz</em>): luz de estudio, ausencia de cajas artificiales y máxima fidelidad de color en cada prenda.
+        </p>
+      </section>
+
+      <!-- 01. Paleta de Colores -->
+      <section id="colores" class="space-y-8">
+        <div class="flex items-baseline justify-between border-b border-studio-border pb-4">
+          <h2 class="text-4xl sm:text-5xl">01. PALETA DE COLORES (TOKENS)</h2>
+          <span class="text-xs font-bold tracking-widest uppercase text-neutral-400">
+            HEX & ROLES SEMÁNTICOS
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div class="space-y-3">
+            <div class="h-36 bg-[#0A0A0A] border border-neutral-200"></div>
+            <div>
+              <p class="font-display text-2xl">BRAND BLACK</p>
+              <p class="text-xs font-mono text-neutral-500">#0A0A0A</p>
+              <p class="text-xs text-neutral-600 mt-1">Textos principales, CTAs de compra y barra superior.</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="h-36 bg-[#E50914]"></div>
+            <div>
+              <p class="font-display text-2xl text-brand-red">ALTOR RED</p>
+              <p class="text-xs font-mono text-neutral-500">#E50914</p>
+              <p class="text-xs text-neutral-600 mt-1">Acento insignia, titulares de impacto y estados activos.</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="h-36 bg-[#5CB811]"></div>
+            <div>
+              <p class="font-display text-2xl text-brand-green">SPAZ GREEN</p>
+              <p class="text-xs font-mono text-neutral-500">#5CB811</p>
+              <p class="text-xs text-neutral-600 mt-1">Certificación UPF 50+, stock disponible y WhatsApp.</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="h-36 bg-[#FFFFFF] border border-neutral-300"></div>
+            <div>
+              <p class="font-display text-2xl">STUDIO WHITE</p>
+              <p class="text-xs font-mono text-neutral-500">#FFFFFF</p>
+              <p class="text-xs text-neutral-600 mt-1">Lienzo principal para fidelidad cromática textil.</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="h-36 bg-[#F7F7F8] border border-neutral-200"></div>
+            <div>
+              <p class="font-display text-2xl">STUDIO MUTED</p>
+              <p class="text-xs font-mono text-neutral-500">#F7F7F8</p>
+              <p class="text-xs text-neutral-600 mt-1">Pedestal neutro de fotografía de producto (3:4).</p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="h-36 bg-[#E5E5E7] border border-neutral-300"></div>
+            <div>
+              <p class="font-display text-2xl">HAIRLINE BORDER</p>
+              <p class="text-xs font-mono text-neutral-500">#E5E5E7</p>
+              <p class="text-xs text-neutral-600 mt-1">Filetes divisorios arquitectónicos de 1px.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02. Tipografía -->
+      <section id="tipografia" class="space-y-8">
+        <div class="flex items-baseline justify-between border-b border-studio-border pb-4">
+          <h2 class="text-4xl sm:text-5xl">02. SISTEMA TIPOGRÁFICO</h2>
+          <span class="text-xs font-bold tracking-widest uppercase text-neutral-400">
+            BEBAS NEUE + INTER
+          </span>
+        </div>
+
+        <div class="divide-y divide-studio-border border-t border-b border-studio-border">
+          <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
+            <div class="lg:col-span-3 text-xs font-mono text-neutral-500">
+              DISPLAY H1 · BEBAS NEUE<br />80px / Line 0.92 / Uppercase
+            </div>
+            <div class="lg:col-span-9 font-display text-6xl sm:text-7xl leading-[0.92]">
+              RENDIMIENTO <span class="text-brand-red">SIN LÍMITES.</span>
+            </div>
+          </div>
+
+          <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
+            <div class="lg:col-span-3 text-xs font-mono text-neutral-500">
+              SECTION H2 · BEBAS NEUE<br />52px / Line 1.0 / Uppercase
+            </div>
+            <div class="lg:col-span-9 font-display text-4xl sm:text-5xl">
+              INGENIERÍA TEXTIL DE MEDELLÍN
+            </div>
+          </div>
+
+          <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
+            <div class="lg:col-span-3 text-xs font-mono text-neutral-500">
+              EYEBROW · INTER BOLD<br />11px / Tracking 0.2em
+            </div>
+            <div class="lg:col-span-9 text-xs font-bold tracking-[0.2em] uppercase text-brand-red">
+              PROTECCIÓN SOLAR CERTIFICADA UPF 50+ · BI-STRETCH
+            </div>
+          </div>
+
+          <div class="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
+            <div class="lg:col-span-3 text-xs font-mono text-neutral-500">
+              BODY COPY · INTER REGULAR<br />16px / Line 1.6
+            </div>
+            <div class="lg:col-span-9 text-base text-neutral-600 max-w-2xl leading-relaxed">
+              Cada licra y buzo de Spaz Altor se construye desde el hilo para resolver los tres problemas reales del deportista: el sol intenso, el sudor acumulado y el desgaste por roce.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. Componentes -->
+      <section id="componentes" class="space-y-8">
+        <div class="flex items-baseline justify-between border-b border-studio-border pb-4">
+          <h2 class="text-4xl sm:text-5xl">03. COMPONENTES ATÓMICOS</h2>
+          <span class="text-xs font-bold tracking-widest uppercase text-neutral-400">
+            CORTE RECTO ARQUITECTÓNICO (0PX RADIUS)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-4">
+          <!-- Botones -->
+          <div class="space-y-4">
+            <p class="text-xs font-bold tracking-widest uppercase text-neutral-400">
+              BOTONES DE ACCIÓN (CTAs)
+            </p>
+            <div class="space-y-3">
+              <button class="w-full bg-brand-red text-white font-bold text-xs tracking-[0.18em] uppercase py-4 px-6">
+                CTA PRIMARIO HERO (ROJO ALTOR) →
+              </button>
+              <button class="w-full bg-brand-black text-white font-bold text-xs tracking-[0.18em] uppercase py-4 px-6">
+                AÑADIR A LA BOLSA (NEGRO ESTUDIO)
+              </button>
+              <button class="w-full bg-white text-neutral-900 border border-neutral-300 font-bold text-xs tracking-[0.18em] uppercase py-4 px-6">
+                BOTÓN SECUNDARIO / EDITORIAL
+              </button>
+            </div>
+          </div>
+
+          <!-- Swatches de Color Reales -->
+          <div class="space-y-4">
+            <p class="text-xs font-bold tracking-widest uppercase text-neutral-400">
+              MUESTRAS DE COLOR TEXTIL (18 TONOS)
+            </p>
+            <div class="p-6 bg-studio-muted space-y-4">
+              <div class="flex flex-wrap gap-3">
+                <span class="w-6 h-6 rounded-full bg-[#18181B] ring-2 ring-offset-2 ring-neutral-900" title="Negro"></span>
+                <span class="w-6 h-6 rounded-full bg-[#FFFFFF] border border-neutral-300" title="Blanco"></span>
+                <span class="w-6 h-6 rounded-full bg-[#2563EB]" title="Azul Rey"></span>
+                <span class="w-6 h-6 rounded-full bg-[#1E293B]" title="Azul Oscuro"></span>
+                <span class="w-6 h-6 rounded-full bg-[#FF2A3B]" title="Rojo"></span>
+                <span class="w-6 h-6 rounded-full bg-[#15803D]" title="Verde Antioquia"></span>
+                <span class="w-6 h-6 rounded-full bg-[#3F4F2C]" title="Verde Militar"></span>
+                <span class="w-6 h-6 rounded-full bg-[#84CC16]" title="Verde Limón"></span>
+                <span class="w-6 h-6 rounded-full bg-[#F97316]" title="Naranja"></span>
+                <span class="w-6 h-6 rounded-full bg-[#7C3AED]" title="Morado"></span>
+                <span class="w-6 h-6 rounded-full bg-[#EC4899]" title="Fucsia"></span>
+              </div>
+              <p class="text-xs text-neutral-500">
+                Al hacer clic o pasar el cursor sobre cualquier muestra, el catálogo cambia la fotografía de la prenda en tiempo real.
+              </p>
+            </div>
+          </div>
+
+          <!-- Índice Editorial -->
+          <div class="space-y-4">
+            <p class="text-xs font-bold tracking-widest uppercase text-neutral-400">
+              PATRÓN DE ESPECIFICACIÓN (CERO CAJAS)
+            </p>
+            <div class="divide-y divide-neutral-300 border-t border-b border-neutral-300">
+              <div class="py-3 flex gap-4 items-baseline">
+                <span class="font-display text-xl text-brand-red">01</span>
+                <div>
+                  <p class="font-display text-xl">FILTRO SOLAR UPF 50+</p>
+                  <p class="text-xs text-neutral-500">Bloqueo del 98% de rayos UVA/UVB.</p>
+                </div>
+              </div>
+              <div class="py-3 flex gap-4 items-baseline">
+                <span class="font-display text-xl text-brand-red">02</span>
+                <div>
+                  <p class="font-display text-xl">ELONGACIÓN BI-STRETCH</p>
+                  <p class="text-xs text-neutral-500">Ajuste anatómico sin deformación.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04. Argumentos de Venta para las Slides -->
+      <section id="argumentos" class="bg-studio-muted p-10 border border-studio-border space-y-6">
+        <span class="text-xs font-bold tracking-[0.2em] uppercase text-brand-red">
+          RESUMEN EJECUTIVO PARA TU PRESENTACIÓN
+        </span>
+        <h2 class="text-4xl sm:text-5xl">POR QUÉ ESTE REDISEÑO VENDE MÁS</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pt-2">
+          <div class="border-t-2 border-neutral-900 pt-4">
+            <p class="font-display text-4xl text-brand-red">-71% PESO</p>
+            <p class="text-xs font-bold uppercase tracking-wider mt-1">VELOCIDAD EXTREMA</p>
+            <p class="text-xs text-neutral-600 mt-2">
+              De 717 kB a solo 205 kB. La tienda abre en menos de 0.4 segundos en datos móviles.
+            </p>
+          </div>
+          <div class="border-t-2 border-neutral-900 pt-4">
+            <p class="font-display text-4xl text-neutral-900">3 LÍNEAS</p>
+            <p class="text-xs font-bold uppercase tracking-wider mt-1">VISIBILIDAD INFANTIL</p>
+            <p class="text-xs text-neutral-600 mt-2">
+              Incorpora la Línea Infantil junto a Mujeres y Hombres para captar escuelas y clubes deportivos.
+            </p>
+          </div>
+          <div class="border-t-2 border-neutral-900 pt-4">
+            <p class="font-display text-4xl text-neutral-900">151 FOTOS</p>
+            <p class="text-xs font-bold uppercase tracking-wider mt-1">CAMBIO DE COLOR EN VIVO</p>
+            <p class="text-xs text-neutral-600 mt-2">
+              El cliente previsualiza cada corte y color real al instante desde la grilla y la ficha.
+            </p>
+          </div>
+          <div class="border-t-2 border-neutral-900 pt-4">
+            <p class="font-display text-4xl text-brand-green">100% COD</p>
+            <p class="text-xs font-bold uppercase tracking-wider mt-1">CIERRE EN COLOMBIA</p>
+            <p class="text-xs text-neutral-600 mt-2">
+              Flujo híbrido: Pago Contra Entrega inmediato y cotización asistida por WhatsApp.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

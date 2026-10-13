@@ -1,0 +1,123 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "meta": {
+    "name": "Spaz Altor — Editorial Performance Design System",
+    "version": "1.0.0",
+    "aesthetic": "Clean Editorial High-Performance Sportswear",
+    "references": ["On Running", "Tracksmith", "Zara Athleticz", "Lululemon"]
+  },
+  "color": {
+    "brand": {
+      "red": {
+        "$value": "#E50914",
+        "$type": "color",
+        "description": "Rojo Altor principal. Usado en acentos quirúrgicos, titulares de impacto y CTAs primarios."
+      },
+      "redHover": {
+        "$value": "#CC0812",
+        "$type": "color",
+        "description": "Estado hover para el Rojo Altor."
+      },
+      "green": {
+        "$value": "#5CB811",
+        "$type": "color",
+        "description": "Verde Spaz técnico. Reservado para certificaciones UPF 50+, disponibilidad y canales de WhatsApp."
+      },
+      "greenHover": {
+        "$value": "#4E9D0E",
+        "$type": "color"
+      },
+      "black": {
+        "$value": "#0A0A0A",
+        "$type": "color",
+        "description": "Negro tinta profundo para textos principales, botones arquitectónicos y barra superior."
+      }
+    },
+    "studio": {
+      "bg": {
+        "$value": "#FFFFFF",
+        "$type": "color",
+        "description": "Lienzo principal blanco de estudio para máxima fidelidad cromática de las prendas."
+      },
+      "muted": {
+        "$value": "#F7F7F8",
+        "$type": "color",
+        "description": "Fondo neutro piedra suave para contenedores fotográficos de producto y secciones técnicas."
+      },
+      "subtle": {
+        "$value": "#EFEFF1",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "#E5E5E7",
+        "$type": "color",
+        "description": "Líneas divisorias editoriales de 1px."
+      }
+    },
+    "text": {
+      "primary": { "$value": "#171717", "$type": "color" },
+      "secondary": { "$value": "#525252", "$type": "color" },
+      "muted": { "$value": "#A3A3A3", "$type": "color" },
+      "inverse": { "$value": "#FFFFFF", "$type": "color" }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": {
+        "$value": "'Bebas Neue', sans-serif",
+        "$type": "fontFamily",
+        "description": "Tipografía condensada atlética para titulares, precios y numeración técnica."
+      },
+      "sans": {
+        "$value": "'Inter', sans-serif",
+        "$type": "fontFamily",
+        "description": "Tipografía funcional de alta legibilidad para cuerpo de texto, filtros, tablas de tallas y checkout."
+      }
+    },
+    "scale": {
+      "heroDisplay": {
+        "fontSize": "80px",
+        "lineHeight": "0.92",
+        "letterSpacing": "-0.02em",
+        "textTransform": "uppercase"
+      },
+      "sectionTitle": {
+        "fontSize": "56px",
+        "lineHeight": "1.0",
+        "letterSpacing": "-0.01em",
+        "textTransform": "uppercase"
+      },
+      "productTitle": {
+        "fontSize": "24px",
+        "lineHeight": "1.15",
+        "letterSpacing": "0.04em"
+      },
+      "eyebrow": {
+        "fontSize": "11px",
+        "fontWeight": "700",
+        "letterSpacing": "0.2em",
+        "textTransform": "uppercase"
+      },
+      "body": {
+        "fontSize": "16px",
+        "lineHeight": "1.6",
+        "fontWeight": "400"
+      },
+      "button": {
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "letterSpacing": "0.18em",
+        "textTransform": "uppercase"
+      }
+    }
+  },
+  "layout": {
+    "maxWidth": "1440px",
+    "borderRadius": {
+      "architectural": "0px",
+      "swatch": "9999px"
+    },
+    "productAspectRatio": "3 / 4",
+    "editorialAspectRatio": "4 / 5"
+  }
+}
