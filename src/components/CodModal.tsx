@@ -31,32 +31,6 @@ export const CodModal: React.FC<CodModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.city || !formData.address) {
-      alert("Por favor completa los datos requeridos.");
-      return;
-    }
-
-    const itemsText = items
-      .map(
-        (i) =>
-          `• ${i.product.title}${i.variantTitle ? ` [${i.variantTitle}]` : ""} (x${
-            i.quantity
-          })`
-      )
-      .join("%0A");
-
-    const message = `*NUEVO PEDIDO CONTRA ENTREGA - SPAZ ALTOR*%0A%0A*Cliente:* ${encodeURIComponent(
-      formData.name
-    )}%0A*WhatsApp:* ${encodeURIComponent(formData.phone)}%0A*Ciudad:* ${encodeURIComponent(
-      formData.city
-    )}%0A*Dirección:* ${encodeURIComponent(formData.address)}%0A${
-      formData.notes ? `*Notas:* ${encodeURIComponent(formData.notes)}%0A` : ""
-    }%0A*Prendas:*%0A${itemsText}%0A%0A*Total Estimado:* ${encodeURIComponent(
-      formatPrice(total)
-    )}%0A%0A_Por favor confirmar disponibilidad y despacho._`;
-
-    window.open(`https://wa.me/573114337982?text=${message}`, "_blank");
-
     setIsSuccess(true);
     setTimeout(() => {
       onOrderCompleted();

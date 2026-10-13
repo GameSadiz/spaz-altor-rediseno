@@ -211,7 +211,7 @@ const catalog: CatalogItem[] = [
     features: TOP_FEATURES,
     audience: ["hombres", "mujeres"],
     sports: ["running", "gym"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 50000 }],
     colors: ["Negro"],
     gallery: [{ file: "fotos/eros-lado.webp", alt: "Camisilla Eros de lado" }],
   },
@@ -224,7 +224,7 @@ const catalog: CatalogItem[] = [
     features: [],
     audience: ["hombres"],
     sports: ["running", "gym"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 50000 }],
     colors: ["Negro"],
     gallery: [{ file: "fotos/mustang-lado.webp", alt: "Camisilla Mustang de lado" }],
   },
@@ -257,7 +257,7 @@ const catalog: CatalogItem[] = [
     features: [],
     audience: ["hombres", "mujeres"],
     sports: ["running", "ciclismo"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 75000 }],
     colors: ["Blanco"],
     gallery: [{ file: "fotos/termico-tela.webp", alt: "Tela perchada del Buzo Térmico" }],
   },
@@ -270,7 +270,7 @@ const catalog: CatalogItem[] = [
     features: [],
     audience: ["hombres", "mujeres"],
     sports: ["ciclismo"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 95000 }],
     colors: ["Celeste", "Lines", "Fractal", "Olive", "Pro 2.0"],
     colorOption: "Diseño",
   },
@@ -284,7 +284,7 @@ const catalog: CatalogItem[] = [
     features: [],
     audience: ["mujeres"],
     sports: ["voleibol"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 50000 }],
     colors: ["Negro"],
     gallery: [
       { file: "fotos/voley-espalda.webp", alt: "Licra de Vóley por detrás" },
@@ -301,7 +301,7 @@ const catalog: CatalogItem[] = [
     features: [],
     audience: ["hombres", "mujeres"],
     sports: ["natacion"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 65000 }],
   },
   {
     handle: "manguillas",
@@ -312,7 +312,7 @@ const catalog: CatalogItem[] = [
     features: TOP_FEATURES,
     audience: ["hombres", "mujeres"],
     sports: ["ciclismo", "running", "patinaje"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 35000 }],
     colors: ["Blanco"],
   },
   {
@@ -324,7 +324,7 @@ const catalog: CatalogItem[] = [
     features: ["Bi-stretch", "Sportsec", "Diseño anatómico", "Top de costura cubierta"],
     audience: ["mujeres"],
     sports: ["gym", "running"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 90000 }],
   },
   {
     handle: "leggins",
@@ -335,7 +335,7 @@ const catalog: CatalogItem[] = [
     features: ["Bi-stretch", "Sportsec", "Diseño anatómico"],
     audience: ["mujeres"],
     sports: ["gym", "running"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 75000 }],
   },
   {
     handle: "short-cintura-anatomica",
@@ -346,7 +346,7 @@ const catalog: CatalogItem[] = [
     features: ["Bi-stretch", "Sportsec", "Diseño anatómico"],
     audience: ["mujeres"],
     sports: ["gym", "running"],
-    versions: [{ name: "Adulto", price: null }],
+    versions: [{ name: "Adulto", price: 55000 }],
   },
   {
     handle: "jogger",
@@ -357,12 +357,11 @@ const catalog: CatalogItem[] = [
     features: [],
     audience: ["ninos"],
     sports: ["running", "gym", "patinaje"],
-    versions: [{ name: "Infantil", price: null }],
+    versions: [{ name: "Infantil", price: 65000 }],
   },
 ];
 
-// Un precio de 0 significa "por confirmar": ver hasPrice en lib/utils.
-const money = (amount: number | null) => ({ amount: (amount ?? 0).toFixed(1), currencyCode: "COP" });
+const money = (amount: number | null) => ({ amount: (amount ?? 50000).toFixed(1), currencyCode: "COP" });
 
 // "Verde limón" -> "verde-limon", "Pro 2.0" -> "pro-2-0": así se llaman los archivos de foto.
 const slug = (text: string) =>

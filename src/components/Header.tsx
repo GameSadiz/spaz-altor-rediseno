@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, ShoppingBag, Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
 import altorLogo from "@/assets/altor-logo.svg";
 import spazLogo from "@/assets/spaz-logo.svg";
 import type { CatalogFilter } from "@/components/CategoryShowcase";
@@ -15,14 +15,13 @@ interface HeaderProps {
 
 interface SubMenuColumn {
   heading: string;
-  items: { label: string; filter: CatalogFilter }[];
+  items: string[];
 }
 
 interface NavMenuItem {
   label: string;
   href: string;
   filter: CatalogFilter;
-  highlight?: boolean;
   columns?: SubMenuColumn[];
 }
 
@@ -38,31 +37,16 @@ const NAV_MENU: NavMenuItem[] = [
     filter: "mujeres",
     columns: [
       {
-        heading: "COLECCIÓN",
-        items: [
-          { label: "Todo Mujeres", filter: "mujeres" },
-          { label: "Lo Más Vendido", filter: "mujeres:destacados" },
-          { label: "Novedades Ropa", filter: "mujeres:novedades" },
-        ],
+        heading: "NOVEDADES",
+        items: ["Novedades Ropa", "Novedades Accesorios", "Todo Novedades"],
       },
       {
-        heading: "PRENDAS",
-        items: [
-          { label: "Licras & Leggins", filter: "mujeres:licras" },
-          { label: "Buzos & Cortavientos", filter: "mujeres:buzos" },
-          { label: "Camisas & Tops", filter: "mujeres:camisas" },
-          { label: "Shorts & Conjuntos", filter: "mujeres:conjuntos" },
-          { label: "Manguillas & Accesorios", filter: "mujeres:accesorios" },
-        ],
+        heading: "ROPA",
+        items: ["Licras", "Tops", "Shorts", "Buzos", "Conjuntos"],
       },
       {
         heading: "DESTACADOS",
-        items: [
-          { label: "Línea Patinaje", filter: "mujeres:patinaje" },
-          { label: "Running & Gym", filter: "mujeres:gym" },
-          { label: "Ciclismo", filter: "mujeres:ciclismo" },
-          { label: "Ofertas Mujeres", filter: "ofertas:mujeres" },
-        ],
+        items: ["Lo más vendido", "Ofertas"],
       },
     ],
   },
@@ -72,62 +56,35 @@ const NAV_MENU: NavMenuItem[] = [
     filter: "hombres",
     columns: [
       {
-        heading: "COLECCIÓN",
-        items: [
-          { label: "Todo Hombres", filter: "hombres" },
-          { label: "Lo Más Vendido", filter: "hombres:destacados" },
-          { label: "Novedades Ropa", filter: "hombres:novedades" },
-        ],
+        heading: "NOVEDADES",
+        items: ["Novedades Ropa", "Novedades Accesorios", "Todo Novedades"],
       },
       {
-        heading: "PRENDAS",
-        items: [
-          { label: "Licras de Compresión", filter: "hombres:licras" },
-          { label: "Buzos & Cortavientos", filter: "hombres:buzos" },
-          { label: "Camisas & Camisillas", filter: "hombres:camisas" },
-          { label: "Manguillas & Accesorios", filter: "hombres:accesorios" },
-        ],
+        heading: "ROPA",
+        items: ["Licras", "Camisetas", "Shorts", "Buzos", "Conjuntos"],
       },
       {
         heading: "DESTACADOS",
-        items: [
-          { label: "Línea Patinaje", filter: "hombres:patinaje" },
-          { label: "Línea Fútbol", filter: "hombres:futbol" },
-          { label: "Ciclismo", filter: "hombres:ciclismo" },
-          { label: "Ofertas Hombres", filter: "ofertas:hombres" },
-        ],
+        items: ["Lo más vendido", "Ofertas"],
       },
     ],
   },
   {
-    label: "INFANTIL",
+    label: "NIÑOS",
     href: "#catalogo",
     filter: "ninos",
     columns: [
       {
-        heading: "POR TALLA & EDAD",
-        items: [
-          { label: "Todo Infantil", filter: "ninos" },
-          { label: "Tallas 4 a 8 (Infantil)", filter: "ninos:tallas-pequenas" },
-          { label: "Tallas 10 a 16 (Juvenil)", filter: "ninos:tallas-juveniles" },
-        ],
+        heading: "POR EDAD",
+        items: ["Bebés (0-3 años)", "Niños (4-8 años)", "Niños (9-14 años)"],
       },
       {
-        heading: "PRENDAS",
-        items: [
-          { label: "Licras Infantiles", filter: "ninos:licras" },
-          { label: "Buzos con Filtro UV", filter: "ninos:buzos" },
-          { label: "Joggers & Largos", filter: "ninos:jogger" },
-        ],
+        heading: "ROPA",
+        items: ["Camisetas", "Shorts", "Conjuntos", "Chaquetas"],
       },
       {
         heading: "DESTACADOS",
-        items: [
-          { label: "Escuelas de Patinaje", filter: "ninos:patinaje" },
-          { label: "Escuelas de Fútbol", filter: "ninos:futbol" },
-          { label: "Lo Más Vendido", filter: "ninos:destacados" },
-          { label: "Ofertas Infantil", filter: "ofertas:ninos" },
-        ],
+        items: ["Lo más vendido", "Ofertas"],
       },
     ],
   },
@@ -137,55 +94,35 @@ const NAV_MENU: NavMenuItem[] = [
     filter: "all",
     columns: [
       {
-        heading: "VELOCIDAD & RUEDAS",
-        items: [
-          { label: "Patinaje de Carreras", filter: "deporte:patinaje" },
-          { label: "Ciclismo de Ruta & MTB", filter: "deporte:ciclismo" },
-        ],
-      },
-      {
-        heading: "FITNESS & RUNNING",
-        items: [
-          { label: "Running & Trail", filter: "deporte:running" },
-          { label: "Gym & CrossTraining", filter: "deporte:gym" },
-        ],
-      },
-      {
         heading: "DEPORTES DE EQUIPO",
-        items: [
-          { label: "Fútbol", filter: "deporte:futbol" },
-          { label: "Voleibol", filter: "deporte:voleibol" },
-        ],
+        items: ["Fútbol", "Baloncesto", "Voleibol", "Tenis"],
       },
       {
-        heading: "ACUÁTICOS & OUTDOOR",
-        items: [
-          { label: "Natación", filter: "deporte:natacion" },
-          { label: "Protección Solar UPF 50+", filter: "deporte:uv" },
-        ],
+        heading: "FITNESS",
+        items: ["Gym", "Yoga", "Crossfit", "Pilates"],
+      },
+      {
+        heading: "OUTDOOR",
+        items: ["Running", "Ciclismo", "Senderismo", "Trail"],
+      },
+      {
+        heading: "OTROS DEPORTES",
+        items: ["Patinaje", "Natación", "Skate", "Golf"],
       },
     ],
   },
   {
     label: "OFERTAS",
     href: "#catalogo",
-    filter: "ofertas",
-    highlight: true,
+    filter: "all",
     columns: [
       {
         heading: "POR GÉNERO",
-        items: [
-          { label: "Ofertas Mujeres", filter: "ofertas:mujeres" },
-          { label: "Ofertas Hombres", filter: "ofertas:hombres" },
-          { label: "Ofertas Infantil", filter: "ofertas:ninos" },
-        ],
+        items: ["Ofertas Mujeres", "Ofertas Hombres", "Ofertas Niños"],
       },
       {
-        heading: "DESTACADOS DE FÁBRICA",
-        items: [
-          { label: "Esenciales Desde $40.000", filter: "ofertas:basicos" },
-          { label: "Dotación Clubes & Escuelas", filter: "ofertas:clubes" },
-        ],
+        heading: "DESTACADOS",
+        items: ["Última oportunidad", "Temporada anterior"],
       },
     ],
   },
@@ -204,20 +141,11 @@ export const Header: React.FC<HeaderProps> = ({
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const handleLinkClick = (filter: CatalogFilter) => {
+  const handleNavClick = (filter: CatalogFilter) => {
     if (onNavigateHome) onNavigateHome();
-    if (onSelectCategory) {
-      onSelectCategory(filter);
-    }
+    if (onSelectCategory) onSelectCategory(filter);
     setHoveredMenu(null);
     setMobileMenuOpen(false);
-
-    setTimeout(() => {
-      const el = document.getElementById("catalogo");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 50);
   };
 
   return (
@@ -236,13 +164,12 @@ export const Header: React.FC<HeaderProps> = ({
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
-          {/* Authentic Brand Logos */}
+          {/* Brand Logos */}
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              if (onNavigateHome) onNavigateHome();
-              if (onSelectCategory) onSelectCategory("all");
+              handleNavClick("all");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="flex items-center gap-3"
@@ -260,7 +187,7 @@ export const Header: React.FC<HeaderProps> = ({
             />
           </a>
 
-          {/* Desktop Navigation with Editorial Mega-Menus */}
+          {/* Desktop Navigation with Visual Mega-Menus */}
           <nav className="hidden lg:flex items-center gap-8 h-full">
             {NAV_MENU.map((item) => {
               const isOpen = hoveredMenu === item.label;
@@ -272,25 +199,24 @@ export const Header: React.FC<HeaderProps> = ({
                   className="relative h-full flex items-center"
                   onMouseEnter={() => setHoveredMenu(hasDropdown ? item.label : null)}
                 >
-                  <button
-                    onClick={() => handleLinkClick(item.filter)}
+                  <a
+                    href={item.href}
+                    onClick={() => handleNavClick(item.filter)}
                     className={`inline-flex items-center gap-1.5 font-display text-lg tracking-wider transition-colors py-2 uppercase ${
                       isOpen
                         ? "text-brand-red"
-                        : item.highlight
-                          ? "text-brand-red hover:text-neutral-900"
-                          : "text-neutral-900 hover:text-brand-red"
+                        : "text-neutral-900 hover:text-brand-red"
                     }`}
                   >
                     <span>{item.label}</span>
                     {hasDropdown && (
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          isOpen ? "rotate-180 text-brand-red" : "text-neutral-400"
+                          isOpen ? "rotate-180 text-brand-red" : "text-neutral-500"
                         }`}
                       />
                     )}
-                  </button>
+                  </a>
 
                   {/* Active bottom bar indicator */}
                   {isOpen && (
@@ -302,10 +228,10 @@ export const Header: React.FC<HeaderProps> = ({
                     <div
                       className={`absolute top-full pt-0 z-50 ${
                         item.columns!.length >= 4
-                          ? "-left-48 w-[760px]"
+                          ? "-left-48 w-[720px]"
                           : item.columns!.length === 3
-                            ? "-left-12 w-[560px]"
-                            : "-left-16 w-[380px]"
+                            ? "-left-8 w-[520px]"
+                            : "-left-12 w-[360px]"
                       }`}
                     >
                       <div className="bg-white border border-studio-border shadow-xl p-8">
@@ -320,19 +246,19 @@ export const Header: React.FC<HeaderProps> = ({
                         >
                           {item.columns!.map((col) => (
                             <div key={col.heading}>
-                              <h4 className="font-display text-base tracking-wider text-neutral-900 uppercase pb-2.5 mb-3 border-b border-studio-border">
+                              <h4 className="font-display text-base tracking-wider text-neutral-900 uppercase pb-2 mb-3 border-b border-studio-border">
                                 {col.heading}
                               </h4>
-                              <ul className="space-y-2.5">
-                                {col.items.map((subItem) => (
-                                  <li key={subItem.label}>
-                                    <button
-                                      onClick={() => handleLinkClick(subItem.filter)}
-                                      className="w-full text-left text-xs text-neutral-600 hover:text-brand-red font-medium transition-colors flex items-center justify-between group py-0.5"
+                              <ul className="space-y-2">
+                                {col.items.map((subLabel) => (
+                                  <li key={subLabel}>
+                                    <a
+                                      href="#catalogo"
+                                      onClick={() => handleNavClick(item.filter)}
+                                      className="block text-xs text-neutral-600 hover:text-brand-red transition-colors py-0.5"
                                     >
-                                      <span>{subItem.label}</span>
-                                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-red" />
-                                    </button>
+                                      {subLabel}
+                                    </a>
                                   </li>
                                 ))}
                               </ul>
@@ -349,7 +275,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
-            {/* Quick Search */}
+            {/* Quick Search UI */}
             <div className="relative">
               {searchOpen ? (
                 <div className="flex items-center bg-studio-muted border border-neutral-300 pl-3 pr-2 py-1.5">
@@ -403,7 +329,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer with Expandable Submenus */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-studio-border px-6 py-6 max-h-[80vh] overflow-y-auto">
           <nav className="flex flex-col divide-y divide-studio-border">
@@ -414,19 +340,19 @@ export const Header: React.FC<HeaderProps> = ({
               return (
                 <div key={item.label} className="py-3">
                   <div className="flex items-center justify-between">
-                    <button
-                      onClick={() => handleLinkClick(item.filter)}
-                      className="text-xl font-display tracking-wider text-neutral-900 hover:text-brand-red uppercase text-left"
+                    <a
+                      href={item.href}
+                      onClick={() => handleNavClick(item.filter)}
+                      className="text-xl font-display tracking-wider text-neutral-900 hover:text-brand-red uppercase"
                     >
                       {item.label}
-                    </button>
+                    </a>
                     {hasDropdown && (
                       <button
                         onClick={() =>
                           setMobileExpanded(isExpanded ? null : item.label)
                         }
                         className="p-2 text-neutral-500 hover:text-neutral-900"
-                        aria-label={`Expandir ${item.label}`}
                       >
                         <ChevronDown
                           className={`w-4 h-4 transition-transform ${
@@ -438,21 +364,22 @@ export const Header: React.FC<HeaderProps> = ({
                   </div>
 
                   {hasDropdown && isExpanded && (
-                    <div className="mt-4 pl-3 border-l-2 border-brand-red space-y-5 pb-2">
+                    <div className="mt-4 pl-3 border-l-2 border-brand-red space-y-4 pb-2">
                       {item.columns!.map((col) => (
                         <div key={col.heading}>
-                          <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-400 mb-2">
+                          <p className="text-[10px] font-bold tracking-widest uppercase text-neutral-400 mb-1.5">
                             {col.heading}
                           </p>
-                          <div className="flex flex-col gap-2">
-                            {col.items.map((subItem) => (
-                              <button
-                                key={subItem.label}
-                                onClick={() => handleLinkClick(subItem.filter)}
-                                className="text-left text-xs font-medium text-neutral-700 hover:text-brand-red py-0.5"
+                          <div className="flex flex-col gap-1.5">
+                            {col.items.map((subLabel) => (
+                              <a
+                                key={subLabel}
+                                href="#catalogo"
+                                onClick={() => handleNavClick(item.filter)}
+                                className="text-xs text-neutral-600 hover:text-brand-red py-0.5"
                               >
-                                {subItem.label}
-                              </button>
+                                {subLabel}
+                              </a>
                             ))}
                           </div>
                         </div>
