@@ -7,6 +7,7 @@ import { FeaturedProducts } from "@/components/FeaturedProducts";
 import { TechBanner } from "@/components/TechBanner";
 import { NewsletterCta } from "@/components/NewsletterCta";
 import { ProductDetailView } from "@/components/ProductDetailView";
+import { InfoPageView, type InfoPageType } from "@/components/InfoPageView";
 import { Footer } from "@/components/Footer";
 import { CartDrawer, type CartItem } from "@/components/CartDrawer";
 import { CodModal } from "@/components/CodModal";
@@ -17,6 +18,7 @@ export const App: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [activeInfoPage, setActiveInfoPage] = useState<InfoPageType | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<CatalogFilter>("all");
 
@@ -63,6 +65,11 @@ export const App: React.FC = () => {
     setCartItems((prev) => prev.filter((item) => item.id !== itemId));
   };
 
+  const handleResetHome = () => {
+    setSelectedProduct(null);
+    setActiveInfoPage(null);
+  };
+
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
@@ -72,13 +79,21 @@ export const App: React.FC = () => {
       <Header
         cartCount={totalCartCount}
         onOpenCart={() => setIsCartOpen(true)}
-        onNavigateHome={() => setSelectedProduct(null)}
-        onSelectCategory={(cat) => setActiveFilter(cat)}
+        onNavigateHome={handleResetHome}
+        onSelectCategory={(cat) => {
+          handleResetHome();
+          setActiveFilter(cat);
+        }}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
       />
 
-      {selectedProduct ? (
+      {activeInfoPage ? (
+        <InfoPageView
+          page={activeInfoPage}
+          onBack={() => setActiveInfoPage(null)}
+        />
+      ) : selectedProduct ? (
         <ProductDetailView
           product={selectedProduct}
           activeFilter={activeFilter}
@@ -110,7 +125,16 @@ export const App: React.FC = () => {
 
       <NewsletterCta />
 
-      <Footer />
+      <Footer
+        onOpenInfoPage={(page) => {
+          setSelectedProduct(null);
+          setActiveInfoPage(page);
+        }}
+        onSelectCategory={(cat) => {
+          handleResetHome();
+          setActiveFilter(cat);
+        }}
+      />
 
       <CartDrawer
         isOpen={isCartOpen}
