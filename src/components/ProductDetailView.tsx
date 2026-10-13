@@ -46,9 +46,12 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    const preferredVersion = activeFilter === "ninos" ? "Infantil" : "Adulto";
-    const preferredCut =
-      activeFilter === "mujeres" ? "Dama" : activeFilter === "hombres" ? "Hombre" : null;
+    const preferredVersion = activeFilter.includes("ninos") ? "Infantil" : "Adulto";
+    const preferredCut = activeFilter.includes("mujeres")
+      ? "Dama"
+      : activeFilter.includes("hombres")
+        ? "Hombre"
+        : null;
 
     const initialVariant =
       variants.find((v) => {

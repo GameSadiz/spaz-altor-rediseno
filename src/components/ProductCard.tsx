@@ -31,9 +31,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   const [selectedColor, setSelectedColor] = useState<string | null>(colors[0] || null);
 
   // Determine preferred version and cut based on active category filter
-  const preferredVersion = activeFilter === "ninos" ? "Infantil" : "Adulto";
-  const preferredCut =
-    activeFilter === "mujeres" ? "Dama" : activeFilter === "hombres" ? "Hombre" : null;
+  const preferredVersion = activeFilter.includes("ninos") ? "Infantil" : "Adulto";
+  const preferredCut = activeFilter.includes("mujeres")
+    ? "Dama"
+    : activeFilter.includes("hombres")
+      ? "Hombre"
+      : null;
 
   const variants = product.variants.edges.map((e) => e.node);
 

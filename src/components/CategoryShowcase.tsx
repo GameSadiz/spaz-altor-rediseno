@@ -1,7 +1,14 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
-export type CatalogFilter = "all" | "licras" | "buzos" | "mujeres" | "hombres" | "ninos";
+export type CatalogFilter =
+  | "all"
+  | "licras"
+  | "buzos"
+  | "mujeres"
+  | "hombres"
+  | "ninos"
+  | string;
 
 interface CategoryShowcaseProps {
   onSelectCategory?: (category: CatalogFilter) => void;

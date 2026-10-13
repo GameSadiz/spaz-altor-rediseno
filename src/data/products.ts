@@ -356,6 +356,7 @@ const catalog: CatalogItem[] = [
     summary: "Jogger deportivo. Solo disponible en talla infantil.",
     features: [],
     audience: ["ninos"],
+    sports: ["running", "gym", "patinaje"],
     versions: [{ name: "Infantil", price: null }],
   },
 ];
